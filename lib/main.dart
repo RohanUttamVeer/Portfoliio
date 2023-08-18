@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'constants/color_constants.dart';
+import 'constants/hive_constants.dart';
 import 'core/bindings/initial_binding.dart' as di;
 import 'routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,6 +13,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await di.dependencies();
+
+  await Hive.initFlutter();
+
+  await Hive.openBox(isLoggedHive);
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

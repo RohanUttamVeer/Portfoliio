@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/constants/common_loader.dart';
 
 import '../../../../constants/color_constants.dart';
 import '../../../../constants/text_constant.dart';
@@ -21,19 +22,17 @@ class AuthScreen extends GetView<AuthController> {
       },
       child: Scaffold(
         body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.09,
-                bottom: MediaQuery.of(context).size.height * 0.02,
-                left: MediaQuery.of(context).size.width * 0.05,
-                right: MediaQuery.of(context).size.width * 0.05,
-              ),
-              child: Form(
-                key: controller.loginFormKey,
+          child: Padding(
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.09,
+              bottom: MediaQuery.of(context).size.height * 0.02,
+              left: MediaQuery.of(context).size.width * 0.05,
+              right: MediaQuery.of(context).size.width * 0.05,
+            ),
+            child: Form(
+              key: controller.loginFormKey,
+              child: Center(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     textWidget(
                       text: TextConstants.signUp,
@@ -95,15 +94,20 @@ class AuthScreen extends GetView<AuthController> {
                       ),
                     ),
                     SizedBox(height: SizeConfig.getPercentSize(8)),
-                    PButton(
-                      context: context,
-                      onTap: () {
-                        if (controller.loginFormKey.currentState!.validate()) {
-                          controller.signUpWithEmail();
-                        }
-                      },
-                      color: ColorConstants.green,
-                      text: TextConstants.register,
+                    Obx(
+                      () => controller.isLoading.value
+                          ? loaderWidget()
+                          : PButton(
+                              context: context,
+                              onTap: () {
+                                if (controller.loginFormKey.currentState!
+                                    .validate()) {
+                                  controller.signUpWithEmail();
+                                }
+                              },
+                              color: ColorConstants.green,
+                              text: TextConstants.register,
+                            ),
                     )
                   ],
                 ),

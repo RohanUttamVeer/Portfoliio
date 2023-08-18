@@ -31,7 +31,7 @@ class PButton extends StatelessWidget {
         ),
         child: textWidget(
           text: text,
-          style: buttonText(ColorConstants.white),
+          style: buttonText(ColorConstants.mattBlack),
         ),
       ),
     );

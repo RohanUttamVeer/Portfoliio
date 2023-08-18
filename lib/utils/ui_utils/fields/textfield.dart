@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utils/ui_utils/fields/theme_helper.dart';
-
 import '../../../constants/color_constants.dart';
 import '../size/size_config.dart';
 import '../text/text_style.dart';
+import 'theme_helper.dart';
 
 class PTextField extends StatelessWidget {
   BuildContext context;

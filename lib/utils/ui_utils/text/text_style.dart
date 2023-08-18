@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:portfolio/utils/ui_utils/size/size_config.dart';
 import '../../../constants/color_constants.dart';
+import '../size/size_config.dart';
 
 TextStyle authHeading() {
   return TextStyle(

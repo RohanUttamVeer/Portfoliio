@@ -1,5 +1,4 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-
 import '../module/auth_module/presentation/bindings/auth_binding.dart';
 import '../module/auth_module/presentation/pages/auth_screen.dart';
 

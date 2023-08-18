@@ -14,7 +14,7 @@ class Loader extends StatelessWidget {
             width: SizeConfig.getPercentSize(11),
             child: CircularProgressIndicator(
               color: ColorConstants.green,
-              strokeWidth: SizeConfig.getPercentSize(12),
+              strokeWidth: SizeConfig.getPercentSize(1.2),
             ),
           ),
         ),
@@ -30,7 +30,7 @@ loaderWidget() {
       width: SizeConfig.getPercentSize(11),
       child: CircularProgressIndicator(
         color: ColorConstants.green,
-        strokeWidth: SizeConfig.getPercentSize(12),
+        strokeWidth: SizeConfig.getPercentSize(1.2),
       ),
     ),
   );
