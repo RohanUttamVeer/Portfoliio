@@ -1,0 +1,117 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../../constants/color_constants.dart';
+import '../../../../constants/text_constant.dart';
+import '../../../../utils/app_utils/validators/text_field_validation.dart';
+import '../../../../utils/ui_utils/buttons/button.dart';
+import '../../../../utils/ui_utils/fields/textfield.dart';
+import '../../../../utils/ui_utils/size/size_config.dart';
+import '../../../../utils/ui_utils/text/text_style.dart';
+import '../../../../utils/ui_utils/text/text_widget.dart';
+import '../controller/auth_controller.dart';
+
+class AuthScreen extends GetView<AuthController> {
+  @override
+  Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    return WillPopScope(
+      onWillPop: () async {
+        return true;
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.09,
+                bottom: MediaQuery.of(context).size.height * 0.02,
+                left: MediaQuery.of(context).size.width * 0.05,
+                right: MediaQuery.of(context).size.width * 0.05,
+              ),
+              child: Form(
+                key: controller.loginFormKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    textWidget(
+                      text: TextConstants.signUp,
+                      style: authHeading(),
+                    ),
+                    SizedBox(height: SizeConfig.getPercentSize(8)),
+                    // PTextField(
+                    //   context: context,
+                    //   readOnly: false,
+                    //   textController: controller.userNameController,
+                    //   validate: (value) => validateRequired(value),
+                    //   inputType: null,
+                    //   onTap: null,
+                    //   obscureText: false,
+                    //   onTapIcon: null,
+                    //   label: TextConstants.userName,
+                    //   hint: '',
+                    //   icon: Icon(null),
+                    // ),
+                    SizedBox(height: SizeConfig.getPercentSize(3)),
+                    PTextField(
+                      context: context,
+                      readOnly: false,
+                      textController: controller.emailController,
+                      validate: (value) => validateEmail(value),
+                      inputType: null,
+                      onTap: null,
+                      obscureText: false,
+                      onTapIcon: null,
+                      label: TextConstants.email,
+                      hint: '',
+                      icon: Icon(null),
+                    ),
+                    SizedBox(height: SizeConfig.getPercentSize(3)),
+                    Obx(
+                      () => PTextField(
+                        context: context,
+                        readOnly: false,
+                        textController: controller.passwordController,
+                        validate: (value) => validatePassword(value),
+                        inputType: null,
+                        onTap: null,
+                        obscureText: controller.isVisiblePass.value,
+                        onTapIcon: () {
+                          controller
+                              .setVisibiltyPass(controller.isVisiblePass.value);
+                        },
+                        label: TextConstants.password,
+                        hint: '',
+                        icon: controller.isVisiblePass.value == false
+                            ? Icon(
+                                Icons.visibility,
+                                color: ColorConstants.green,
+                                size: SizeConfig.getPercentSize(6),
+                              )
+                            : Icon(Icons.visibility_off,
+                                color: ColorConstants.green,
+                                size: SizeConfig.getPercentSize(6)),
+                      ),
+                    ),
+                    SizedBox(height: SizeConfig.getPercentSize(8)),
+                    PButton(
+                      context: context,
+                      onTap: () {
+                        if (controller.loginFormKey.currentState!.validate()) {
+                          controller.signUpWithEmail();
+                        }
+                      },
+                      color: ColorConstants.green,
+                      text: TextConstants.register,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

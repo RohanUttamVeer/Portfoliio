@@ -1,0 +1,1 @@
+Contain all the routes realated to project one will be Core Routes and Othere will be Application Routes

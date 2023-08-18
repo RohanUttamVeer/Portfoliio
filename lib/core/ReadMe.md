@@ -1,0 +1,1 @@
+This is folder will contain all the core funtion which can be use across the application.
