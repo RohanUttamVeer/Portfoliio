@@ -108,7 +108,20 @@ class AuthScreen extends GetView<AuthController> {
                               color: ColorConstants.green,
                               text: TextConstants.register,
                             ),
-                    )
+                    ),
+                    SizedBox(height: SizeConfig.getPercentSize(3)),
+                    const Divider(
+                      color: ColorConstants.green,
+                    ),
+                    SizedBox(height: SizeConfig.getPercentSize(3)),
+                    PButton(
+                      context: context,
+                      onTap: () {
+                        controller.signUpWithGoogle();
+                      },
+                      color: ColorConstants.green,
+                      text: TextConstants.google,
+                    ),
                   ],
                 ),
               ),

@@ -7,6 +7,7 @@ class TextConstants {
 
 // auth
   static const String register = "Register";
+  static const String google = "Google";
   static const String signIn = "Sign In";
   static const String signUp = "Sign Up";
   static const String dontHaveAccount = "Don't have an account ?\t";

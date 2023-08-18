@@ -116,6 +116,7 @@ class AuthController extends GetxController {
         clearControllers();
       },
     );
+    loadingFalse();
   }
 
   /// set user as logged in
