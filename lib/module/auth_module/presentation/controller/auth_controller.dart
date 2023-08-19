@@ -28,11 +28,10 @@ class AuthController extends GetxController {
   late AuthSetIsLogin _setIsLogin;
   late AuthGetIsLogin _getIsLogin;
 
-  @override
-  void onInit() {
-    super.onInit();
-    // getIsLoggedIn();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   void dispose() {

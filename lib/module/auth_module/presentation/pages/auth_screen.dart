@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/constants/common_loader.dart';
-
 import '../../../../constants/color_constants.dart';
+import '../../../../constants/common_loader.dart';
 import '../../../../constants/text_constant.dart';
 import '../../../../utils/app_utils/validators/text_field_validation.dart';
 import '../../../../utils/ui_utils/buttons/button.dart';
@@ -23,6 +22,7 @@ class AuthScreen extends GetView<AuthController> {
       child: Scaffold(
         body: SafeArea(
           child: SingleChildScrollView(
+            physics: BouncingScrollPhysics(),
             child: Padding(
               padding: EdgeInsets.only(
                 top: SizeConfig.getPercentSize(18),

@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
-import 'package:portfolio/core/usecases/usecase.dart';
-
 import '../../../../core/error/failures.dart';
+import '../../../../core/usecases/usecase.dart';
 import '../../../../utils/ui_utils/dialogs/snack_bar.dart';
 import '../../domain/entities/github_repo_model.dart';
 import '../../domain/usecases/get_github_repo.dart';
@@ -15,10 +14,10 @@ class PortfolioController extends GetxController {
 
   late GetGithubRepo _getGithubRepo;
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  // }
 
   @override
   void dispose() {
@@ -70,7 +69,6 @@ class PortfolioController extends GetxController {
     return GithubRepoData(
       id: data["id"].toString(),
       name: data["name"],
-      owner: data["owner"]["login"],
       language: data["language"],
       link: data["html_url"],
     );

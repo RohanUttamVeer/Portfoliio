@@ -1,7 +1,4 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:portfolio/constants/hive_constants.dart';
-import 'package:portfolio/module/portfolio_module/presentation/pages/github_repo_screen.dart';
 import '../module/auth_module/presentation/bindings/auth_binding.dart';
 import '../module/auth_module/presentation/pages/auth_screen.dart';
 import '../module/portfolio_module/presentation/bindings/portfolio_binding.dart';
@@ -26,10 +23,10 @@ class AppPages {
       page: () => PortfolioScreen(),
       binding: PortfolioBinding(),
     ),
-    GetPage(
-      name: _Paths.GITHUBREPO,
-      page: () => GithubRepoScreen(),
-      binding: PortfolioBinding(),
-    ),
+    // GetPage(
+    //   name: _Paths.GITHUBREPO,
+    //   page: () => GithubRepoScreen(),
+    //   binding: PortfolioBinding(),
+    // ),
   ];
 }

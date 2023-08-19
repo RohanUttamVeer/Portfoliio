@@ -1,6 +1,7 @@
 class AssetsConstants {
-  static const String _assetsAuthPath = "assets/auth";
+  static const String _assetsAdminPath = "assets/admin";
 
 // auth
-  static const String assetsGoogleLogo = "$_assetsAuthPath/google.png";
+  static const String assetsAdminHeadshot = "$_assetsAdminPath/headshot.png";
+  static const String assetsAdminGithub = "$_assetsAdminPath/github.jpg";
 }

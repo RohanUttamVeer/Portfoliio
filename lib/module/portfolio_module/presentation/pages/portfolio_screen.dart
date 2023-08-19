@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/utils/ui_utils/text/text_style.dart';
-import 'package:portfolio/utils/ui_utils/text/text_widget.dart';
 import '../../../../constants/color_constants.dart';
 import '../../../../utils/ui_utils/buttons/button.dart';
 import '../../../../utils/ui_utils/size/size_config.dart';

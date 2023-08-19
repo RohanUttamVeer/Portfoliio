@@ -4,10 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'constants/color_constants.dart';
 import 'constants/hive_constants.dart';
-import 'core/bindings/initial_binding.dart' as di;
+// import 'core/bindings/initial_binding.dart' as di;
 import 'routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +34,7 @@ class Portfolio extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
-      initialRoute: Hive.box(isLoggedHive).get(isLoggedHiveKey)
+      initialRoute: Hive.box(isLoggedHive).get(isLoggedHiveKey) ?? false
           ? Routes.PORTFOLIO
           : Routes.AUTH,
       getPages: AppPages.routes,

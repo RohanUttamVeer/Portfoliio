@@ -1,16 +1,5 @@
-import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import '../../module/auth_module/data/datasources/local/auth_local_datasources.dart';
-import '../../module/auth_module/data/datasources/remote/auth_remote_datasources.dart';
-import '../../module/auth_module/data/repositories/auth_repository_impl.dart';
-import '../../module/auth_module/domain/repositories/auth_repository.dart';
-import '../../module/auth_module/domain/usecases/auth_get_is_login.dart';
-import '../../module/auth_module/domain/usecases/auth_register.dart';
-import '../../module/auth_module/domain/usecases/auth_set_is_login.dart';
-import '../../module/auth_module/domain/usecases/google_auth.dart';
-import '../../module/auth_module/presentation/controller/auth_controller.dart';
 
-Future<void> dependencies() async {
+// Future<void> dependencies() async {
 //   // local data
 //   final hive = Hive;
 //   Get.lazyPut(() => hive);
@@ -34,4 +23,4 @@ Future<void> dependencies() async {
 //   Get.lazyPut(() => GoogleAuth(Get.find()));
 //   Get.lazyPut(() => AuthSetIsLogin(Get.find()));
 //   Get.lazyPut(() => AuthGetIsLogin(Get.find()));
-}
+// }
