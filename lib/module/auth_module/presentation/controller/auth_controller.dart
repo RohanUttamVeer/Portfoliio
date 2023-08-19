@@ -6,6 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/usecases/usecase.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../../utils/ui_utils/dialogs/snack_bar.dart';
 import '../../domain/usecases/auth_get_is_login.dart';
 import '../../domain/usecases/auth_register.dart';
@@ -30,7 +31,7 @@ class AuthController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getIsLoggedIn();
+    // getIsLoggedIn();
   }
 
   @override
@@ -111,8 +112,8 @@ class AuthController extends GetxController {
         }
       },
       (r) {
-        loadingFalse();
         setIsLoggedIn();
+        loadingFalse();
         clearControllers();
       },
     );
@@ -138,7 +139,7 @@ class AuthController extends GetxController {
       },
       (r) {
         loadingFalse();
-        // Get.offAllNamed(newRouteName);
+        Get.offAllNamed(Routes.PORTFOLIO);
       },
     );
   }
@@ -162,7 +163,7 @@ class AuthController extends GetxController {
         if (r == true) {
           log('true');
           loadingFalse();
-          // Get.offAllNamed(newRouteName);
+          Get.offAllNamed(Routes.PORTFOLIO);
         } else {
           loadingFalse();
           log('false');

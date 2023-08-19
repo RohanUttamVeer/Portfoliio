@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import '../../module/auth_module/data/datasources/local/local_remote_datasources.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import '../../module/auth_module/data/datasources/local/auth_local_datasources.dart';
 import '../../module/auth_module/data/datasources/remote/auth_remote_datasources.dart';
 import '../../module/auth_module/data/repositories/auth_repository_impl.dart';
 import '../../module/auth_module/domain/repositories/auth_repository.dart';
@@ -10,28 +11,27 @@ import '../../module/auth_module/domain/usecases/google_auth.dart';
 import '../../module/auth_module/presentation/controller/auth_controller.dart';
 
 Future<void> dependencies() async {
-  // local data
-  // final sharedPreferences = await SharedPreferences.getInstance();
-  // Get.lazyPut(() => sharedPreferences);
-  // Get.lazyPut(() => http.Client());
+//   // local data
+//   final hive = Hive;
+//   Get.lazyPut(() => hive);
 
-// remote data
-  Get.lazyPut<AuthController>(() => AuthController(
-        Get.find(),
-        Get.find(),
-        Get.find(),
-        Get.find(),
-      ));
-      
-  Get.put<AuthLocalDatasource>(AuthLocalDatasourceImpl());
-  Get.put<AuthRemoteDatasource>(AuthRemoteDatasourceImpl());
-  Get.put<AuthRepository>(AuthRepositoryImpl(
-    Get.find(),
-    Get.find(),
-  ));
+// // remote data
+//   Get.lazyPut<AuthController>(() => AuthController(
+//         Get.find(),
+//         Get.find(),
+//         Get.find(),
+//         Get.find(),
+//       ));
 
-  Get.lazyPut(() => AuthRegister(Get.find()));
-  Get.lazyPut(() => GoogleAuth(Get.find()));
-  Get.lazyPut(() => AuthSetIsLogin(Get.find()));
-  Get.lazyPut(() => AuthGetIsLogin(Get.find()));
+//   Get.put<AuthLocalDatasource>(AuthLocalDatasourceImpl(Get.find()));
+//   Get.put<AuthRemoteDatasource>(AuthRemoteDatasourceImpl());
+//   Get.put<AuthRepository>(AuthRepositoryImpl(
+//     Get.find(),
+//     Get.find(),
+//   ));
+
+//   Get.lazyPut(() => AuthRegister(Get.find()));
+//   Get.lazyPut(() => GoogleAuth(Get.find()));
+//   Get.lazyPut(() => AuthSetIsLogin(Get.find()));
+//   Get.lazyPut(() => AuthGetIsLogin(Get.find()));
 }

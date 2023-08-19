@@ -10,10 +10,13 @@ abstract class AuthLocalDatasource {
 }
 
 class AuthLocalDatasourceImpl implements AuthLocalDatasource {
+  final HiveInterface _hive;
+  AuthLocalDatasourceImpl(this._hive);
+
   @override
   setLoggedIn(SetLoginParams params) {
     try {
-      var isLoggedBox = Hive.box(isLoggedHive);
+      var isLoggedBox = _hive.box(isLoggedHive);
       isLoggedBox.put(isLoggedHiveKey, params.value);
       return true;
     } catch (e) {
@@ -24,7 +27,7 @@ class AuthLocalDatasourceImpl implements AuthLocalDatasource {
   @override
   bool getLoggedIn() {
     try {
-      var isLoggedBox = Hive.box(isLoggedHive);
+      var isLoggedBox = _hive.box(isLoggedHive);
       return isLoggedBox.get(isLoggedHiveKey) ?? false;
     } catch (e) {
       throw CacheException('Something went wrong !');

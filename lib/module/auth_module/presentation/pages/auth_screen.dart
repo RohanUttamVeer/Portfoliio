@@ -22,107 +22,109 @@ class AuthScreen extends GetView<AuthController> {
       },
       child: Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.09,
-              bottom: MediaQuery.of(context).size.height * 0.02,
-              left: MediaQuery.of(context).size.width * 0.05,
-              right: MediaQuery.of(context).size.width * 0.05,
-            ),
-            child: Form(
-              key: controller.loginFormKey,
-              child: Center(
-                child: Column(
-                  children: [
-                    textWidget(
-                      text: TextConstants.signUp,
-                      style: authHeading(),
-                    ),
-                    SizedBox(height: SizeConfig.getPercentSize(8)),
-                    // PTextField(
-                    //   context: context,
-                    //   readOnly: false,
-                    //   textController: controller.userNameController,
-                    //   validate: (value) => validateRequired(value),
-                    //   inputType: null,
-                    //   onTap: null,
-                    //   obscureText: false,
-                    //   onTapIcon: null,
-                    //   label: TextConstants.userName,
-                    //   hint: '',
-                    //   icon: Icon(null),
-                    // ),
-                    SizedBox(height: SizeConfig.getPercentSize(3)),
-                    PTextField(
-                      context: context,
-                      readOnly: false,
-                      textController: controller.emailController,
-                      validate: (value) => validateEmail(value),
-                      inputType: null,
-                      onTap: null,
-                      obscureText: false,
-                      onTapIcon: null,
-                      label: TextConstants.email,
-                      hint: '',
-                      icon: Icon(null),
-                    ),
-                    SizedBox(height: SizeConfig.getPercentSize(3)),
-                    Obx(
-                      () => PTextField(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: SizeConfig.getPercentSize(18),
+                bottom: SizeConfig.getPercentSize(8),
+                left: SizeConfig.getPercentSize(10),
+                right: SizeConfig.getPercentSize(10),
+              ),
+              child: Form(
+                key: controller.loginFormKey,
+                child: Center(
+                  child: Column(
+                    children: [
+                      textWidget(
+                        text: TextConstants.signUp,
+                        style: authHeading(),
+                      ),
+                      SizedBox(height: SizeConfig.getPercentSize(8)),
+                      // PTextField(
+                      //   context: context,
+                      //   readOnly: false,
+                      //   textController: controller.userNameController,
+                      //   validate: (value) => validateRequired(value),
+                      //   inputType: null,
+                      //   onTap: null,
+                      //   obscureText: false,
+                      //   onTapIcon: null,
+                      //   label: TextConstants.userName,
+                      //   hint: '',
+                      //   icon: Icon(null),
+                      // ),
+                      SizedBox(height: SizeConfig.getPercentSize(3)),
+                      PTextField(
                         context: context,
                         readOnly: false,
-                        textController: controller.passwordController,
-                        validate: (value) => validatePassword(value),
+                        textController: controller.emailController,
+                        validate: (value) => validateEmail(value),
                         inputType: null,
                         onTap: null,
-                        obscureText: controller.isVisiblePass.value,
-                        onTapIcon: () {
-                          controller
-                              .setVisibiltyPass(controller.isVisiblePass.value);
-                        },
-                        label: TextConstants.password,
+                        obscureText: false,
+                        onTapIcon: null,
+                        label: TextConstants.email,
                         hint: '',
-                        icon: controller.isVisiblePass.value == false
-                            ? Icon(
-                                Icons.visibility,
-                                color: ColorConstants.green,
-                                size: SizeConfig.getPercentSize(6),
-                              )
-                            : Icon(Icons.visibility_off,
-                                color: ColorConstants.green,
-                                size: SizeConfig.getPercentSize(6)),
+                        icon: Icon(null),
                       ),
-                    ),
-                    SizedBox(height: SizeConfig.getPercentSize(8)),
-                    Obx(
-                      () => controller.isLoading.value
-                          ? loaderWidget()
-                          : PButton(
-                              context: context,
-                              onTap: () {
-                                if (controller.loginFormKey.currentState!
-                                    .validate()) {
-                                  controller.signUpWithEmail();
-                                }
-                              },
-                              color: ColorConstants.green,
-                              text: TextConstants.register,
-                            ),
-                    ),
-                    SizedBox(height: SizeConfig.getPercentSize(3)),
-                    const Divider(
-                      color: ColorConstants.green,
-                    ),
-                    SizedBox(height: SizeConfig.getPercentSize(3)),
-                    PButton(
-                      context: context,
-                      onTap: () {
-                        controller.signUpWithGoogle();
-                      },
-                      color: ColorConstants.green,
-                      text: TextConstants.google,
-                    ),
-                  ],
+                      SizedBox(height: SizeConfig.getPercentSize(3)),
+                      Obx(
+                        () => PTextField(
+                          context: context,
+                          readOnly: false,
+                          textController: controller.passwordController,
+                          validate: (value) => validatePassword(value),
+                          inputType: null,
+                          onTap: null,
+                          obscureText: controller.isVisiblePass.value,
+                          onTapIcon: () {
+                            controller.setVisibiltyPass(
+                                controller.isVisiblePass.value);
+                          },
+                          label: TextConstants.password,
+                          hint: '',
+                          icon: controller.isVisiblePass.value == false
+                              ? Icon(
+                                  Icons.visibility,
+                                  color: ColorConstants.green,
+                                  size: SizeConfig.getPercentSize(6),
+                                )
+                              : Icon(Icons.visibility_off,
+                                  color: ColorConstants.green,
+                                  size: SizeConfig.getPercentSize(6)),
+                        ),
+                      ),
+                      SizedBox(height: SizeConfig.getPercentSize(8)),
+                      Obx(
+                        () => controller.isLoading.value
+                            ? loaderWidget()
+                            : PButton(
+                                context: context,
+                                onTap: () {
+                                  if (controller.loginFormKey.currentState!
+                                      .validate()) {
+                                    controller.signUpWithEmail();
+                                  }
+                                },
+                                color: ColorConstants.green,
+                                text: TextConstants.register,
+                              ),
+                      ),
+                      SizedBox(height: SizeConfig.getPercentSize(3)),
+                      const Divider(
+                        color: ColorConstants.green,
+                      ),
+                      SizedBox(height: SizeConfig.getPercentSize(3)),
+                      PButton(
+                        context: context,
+                        onTap: () {
+                          controller.signUpWithGoogle();
+                        },
+                        color: ColorConstants.green,
+                        text: TextConstants.google,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

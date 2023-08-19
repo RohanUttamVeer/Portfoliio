@@ -6,7 +6,7 @@ import '../../../../core/error/failures.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../../domain/usecases/auth_register.dart';
 import '../../domain/usecases/auth_set_is_login.dart';
-import '../datasources/local/local_remote_datasources.dart';
+import '../datasources/local/auth_local_datasources.dart';
 import '../datasources/remote/auth_remote_datasources.dart';
 
 class AuthRepositoryImpl implements AuthRepository {

@@ -12,7 +12,7 @@ import 'firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await di.dependencies();
+  // await di.dependencies();
 
   await Hive.initFlutter();
 
@@ -33,7 +33,9 @@ class Portfolio extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
-      initialRoute: AppPages.INITIAL,
+      initialRoute: Hive.box(isLoggedHive).get(isLoggedHiveKey)
+          ? Routes.PORTFOLIO
+          : Routes.AUTH,
       getPages: AppPages.routes,
       theme: ThemeData(
         scaffoldBackgroundColor: ColorConstants.mattBlack,
