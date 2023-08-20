@@ -37,7 +37,7 @@ class AuthScreen extends GetView<AuthController> {
                     children: [
                       textWidget(
                         text: TextConstants.signUp,
-                        style: authHeading(),
+                        style: authHeading(ColorConstants.green),
                       ),
                       SizedBox(height: SizeConfig.getPercentSize(8)),
                       // PTextField(

@@ -1,6 +1,7 @@
 class TextConstants {
-  // app name
+  // app
   static const String appName = "Portfolio";
+  static const String adminName = "Rohan Veer";
 
   // version
   static const String version = "1.0.0";
@@ -19,8 +20,35 @@ class TextConstants {
   static const String userName = "User Name";
   static const String signOut = "Sign Out";
 
-// button
-  // static const String sendText = "Send";
-  // static const String submit = "Submit";
-  // static const String next = "Next";
+// portfolio
+  static const String skills =
+      "Android  Flutter  Dart  Java  RESTful_API  Firebase  Git  Hive  Figma  UI/UX";
+
+  // experience
+  static const String experience = "Experience";
+  static const String kalibaExp = "Apr 2022 - Jul 2023 • 1 yr 4 mons";
+  static const String btvExp = "Jan 2021 - Jun 2021 • 6 mons";
+  static const String freelanceExp = "Jul 2019 - Mar 2022 • 2 yr 8 mons";
+  static const String appdidExp = "May 2019 - Jul 2019  • 3 mons";
+  static const String kaliba = "Kaliba Enterprises Pvt. Ltd.";
+  static const String btv = "Beat The Virus";
+  static const String jrFlutterDev = "Jr. Flutter Developer";
+  static const String appDev = "App Dev.";
+  static const String appDeveloper = "App Developer";
+  static const String appDevIntern = "App Dev. Intern";
+  static const String teamManager = "Manager";
+  static const String freelance = "Freelance";
+  static const String appdid = "Appdid Infotech";
+
+  // feedback
+  static const String jaineshP = "Jainesh Patel";
+  static const String vishalB = "Vishal Bhuta";
+  static const String jaineshPFeedback =
+      "I had the pleasure of working and mentoring Rohan. With a growth-driven attitude and a passion for...";
+  static const String jaineshPFeedbackWeb =
+      "I had the pleasure of working and mentoring Rohan. With a growth-driven attitude and a passion for learning, Rohan has a strong knowledge of mobile app development. His dedication to excellence makes him an invaluable asset to any team or project.";
+  static const String vishalBFeedback =
+      "Rohan worked very well especially in the App Team of Beat The Virus Startup. He also contributed to...";
+  static const String vishalBFeedbackWeb =
+      "Rohan worked very well especially in the App Team of Beat The Virus Startup. He also contributed to Investments Team. Keep rising Rohan..";
 }
