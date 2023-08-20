@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../constants/image_constants.dart';
+import '../../../../constants/text_constant.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../../../../utils/ui_utils/dialogs/snack_bar.dart';
 import '../../domain/entities/github_repo_model.dart';
 import '../../domain/usecases/get_github_repo.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class PortfolioController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -19,6 +22,7 @@ class PortfolioController extends GetxController
   @override
   void onInit() {
     super.onInit();
+    setExperienceData();
     animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 20),
@@ -51,7 +55,12 @@ class PortfolioController extends GetxController
   }
 
   var isLoading = false.obs;
-  var githubRepoList = List<GithubRepoData>.empty(growable: true).obs;
+  List<ExperienceModel> experienceList = [];
+  var githubRepoList = List<GithubRepoModel>.empty(growable: true).obs;
+
+  late AnimationController animationController;
+  late Animation<Offset> offsetAnimation1;
+  late Animation<Offset> offsetAnimation2;
 
   void loadingTrue() {
     isLoading(true);
@@ -64,10 +73,6 @@ class PortfolioController extends GetxController
   clearControllers() {
     isLoading(false);
   }
-
-  late AnimationController animationController;
-  late Animation<Offset> offsetAnimation1;
-  late Animation<Offset> offsetAnimation2;
 
   /// get list of all public repos
   getGithubRepo() async {
@@ -95,11 +100,60 @@ class PortfolioController extends GetxController
   }
 
   getGithubRepoData(var data) async {
-    return GithubRepoData(
+    return GithubRepoModel(
       id: data["id"].toString(),
       name: data["name"],
       language: data["language"],
       link: data["html_url"],
     );
+  }
+
+  setExperienceData() {
+    experienceList = [
+      ExperienceModel(
+        role: TextConstants.jrFlutterDev,
+        companyName: TextConstants.kaliba,
+        companyLogo: AssetsConstants.assetsKaliba,
+        experience: TextConstants.kalibaExp,
+        isFeedback: true,
+        feedbackImage: AssetsConstants.assetsJainesh,
+        feedbackBy: TextConstants.jaineshP,
+        feedback: kIsWeb
+            ? TextConstants.jaineshPFeedbackWeb
+            : TextConstants.jaineshPFeedback,
+      ),
+      ExperienceModel(
+        role: TextConstants.appDeveloper,
+        companyName: TextConstants.freelance,
+        companyLogo: AssetsConstants.assetsFreelancer,
+        experience: TextConstants.freelanceExp,
+        isFeedback: false,
+        feedbackImage: '',
+        feedbackBy: '',
+        feedback: '',
+      ),
+      ExperienceModel(
+        role: "${TextConstants.appDev} + ${TextConstants.teamManager}",
+        companyName: TextConstants.btv,
+        companyLogo: AssetsConstants.assetsBtv,
+        experience: TextConstants.btvExp,
+        isFeedback: true,
+        feedbackImage: AssetsConstants.assetsVishal,
+        feedbackBy: TextConstants.vishalB,
+        feedback: kIsWeb
+            ? TextConstants.vishalBFeedbackWeb
+            : TextConstants.vishalBFeedback,
+      ),
+      ExperienceModel(
+        role: TextConstants.appDevIntern,
+        companyName: TextConstants.appdid,
+        companyLogo: AssetsConstants.assetsAppdid,
+        experience: TextConstants.appdidExp,
+        isFeedback: false,
+        feedbackImage: '',
+        feedbackBy: '',
+        feedback: '',
+      ),
+    ];
   }
 }

@@ -108,64 +108,74 @@ class PortfolioScreen extends GetView<PortfolioController> {
                       text: TextConstants.experience,
                       style: authHeading(ColorConstants.white),
                     ),
-                    CompanyCard(
-                      context: context,
-                      role: TextConstants.jrFlutterDev,
-                      companyName: TextConstants.kaliba,
-                      exp: TextConstants.kalibaExp,
-                      companyLogo: AssetsConstants.assetsKaliba,
-                      isFeedback: true,
-                      feedbackImage: AssetsConstants.assetsJainesh,
-                      feedbackBy: TextConstants.jaineshP,
-                      feedback: kIsWeb
-                          ? TextConstants.jaineshPFeedbackWeb
-                          : TextConstants.jaineshPFeedback,
+                    ListView.builder(
+                      itemCount: controller.experienceList.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return CompanyCard(
+                          context: context,
+                          role: controller.experienceList[index].role!,
+                          companyName:
+                              controller.experienceList[index].companyName!,
+                          companyLogo:
+                              controller.experienceList[index].companyLogo!,
+                          exp: controller.experienceList[index].experience!,
+                          isFeedback:
+                              controller.experienceList[index].isFeedback!,
+                          feedbackImage:
+                              controller.experienceList[index].feedbackImage!,
+                          feedbackBy:
+                              controller.experienceList[index].feedbackBy!,
+                          feedback: controller.experienceList[index].feedback!,
+                        );
+                      },
                     ),
-                    SizedBox(
-                      height: SizeConfig.getPercentSize(5),
-                    ),
-                    CompanyCard(
-                      context: context,
-                      role: TextConstants.appDeveloper,
-                      companyName: TextConstants.freelance,
-                      exp: TextConstants.freelanceExp,
-                      companyLogo: AssetsConstants.assetsFreelancer,
-                      isFeedback: false,
-                      feedbackImage: '',
-                      feedbackBy: '',
-                      feedback: '',
-                    ),
-                    SizedBox(
-                      height: SizeConfig.getPercentSize(5),
-                    ),
-                    CompanyCard(
-                      context: context,
-                      role:
-                          "${TextConstants.appDev} + ${TextConstants.teamManager}",
-                      companyName: TextConstants.btv,
-                      exp: TextConstants.btvExp,
-                      companyLogo: AssetsConstants.assetsBtv,
-                      isFeedback: true,
-                      feedbackImage: AssetsConstants.assetsVishal,
-                      feedbackBy: TextConstants.vishalB,
-                      feedback: kIsWeb
-                          ? TextConstants.vishalBFeedbackWeb
-                          : TextConstants.vishalBFeedback,
-                    ),
-                    SizedBox(
-                      height: SizeConfig.getPercentSize(5),
-                    ),
-                    CompanyCard(
-                      context: context,
-                      role: TextConstants.appDevIntern,
-                      companyName: TextConstants.appdid,
-                      exp: TextConstants.appdidExp,
-                      companyLogo: AssetsConstants.assetsAppdid,
-                      isFeedback: false,
-                      feedbackImage: '',
-                      feedbackBy: '',
-                      feedback: '',
-                    ),
+                    //       SizedBox(
+                    //         height: SizeConfig.getPercentSize(5),
+                    //       ),
+                    //       CompanyCard(
+                    //         context: context,
+                    //         role: TextConstants.appDeveloper,
+                    //         companyName: TextConstants.freelance,
+                    //         exp: TextConstants.freelanceExp,
+                    //         companyLogo: AssetsConstants.assetsFreelancer,
+                    //         isFeedback: false,
+                    //         feedbackImage: '',
+                    //         feedbackBy: '',
+                    //         feedback: '',
+                    //       ),
+                    //       SizedBox(
+                    //         height: SizeConfig.getPercentSize(5),
+                    //       ),
+                    //       CompanyCard(
+                    //         context: context,
+                    //         role:
+                    //             "${TextConstants.appDev} + ${TextConstants.teamManager}",
+                    //         companyName: TextConstants.btv,
+                    //         exp: TextConstants.btvExp,
+                    //         companyLogo: AssetsConstants.assetsBtv,
+                    //         isFeedback: true,
+                    //         feedbackImage: AssetsConstants.assetsVishal,
+                    //         feedbackBy: TextConstants.vishalB,
+                    //         feedback: kIsWeb
+                    //             ? TextConstants.vishalBFeedbackWeb
+                    //             : TextConstants.vishalBFeedback,
+                    //       ),
+                    //       SizedBox(
+                    //         height: SizeConfig.getPercentSize(5),
+                    //       ),
+                    //       CompanyCard(
+                    //         context: context,
+                    //         role: TextConstants.appDevIntern,
+                    //         companyName: TextConstants.appdid,
+                    //         exp: TextConstants.appdidExp,
+                    //         companyLogo: AssetsConstants.assetsAppdid,
+                    //         isFeedback: false,
+                    //         feedbackImage: '',
+                    //         feedbackBy: '',
+                    //         feedback: '',
+                    //       ),
                   ],
                 ),
               ),

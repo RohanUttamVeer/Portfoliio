@@ -36,6 +36,7 @@ class CompanyCard extends StatelessWidget {
       // color: Colors.amber,
       margin: EdgeInsets.only(
         right: kIsWeb ? SizeConfig.getPercentSize(60) : 0,
+        top: SizeConfig.getPercentSize(5),
       ),
       height: isFeedback
           ? SizeConfig.getPercentSize(60)
@@ -108,7 +109,7 @@ class CompanyCard extends StatelessWidget {
                       left: SizeConfig.getPercentSize(8),
                     ),
                     decoration: BoxDecoration(
-                      color: ColorConstants.green,
+                      color: ColorConstants.lightGreen,
                       border: Border.all(
                         color: ColorConstants.white,
                       ),

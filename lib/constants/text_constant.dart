@@ -26,10 +26,10 @@ class TextConstants {
 
   // experience
   static const String experience = "Experience";
-  static const String kalibaExp = "Apr 2022 - Jul 2023 • 1 yr 4 mons";
-  static const String btvExp = "Jan 2021 - Jun 2021 • 6 mons";
-  static const String freelanceExp = "Jul 2019 - Mar 2022 • 2 yr 8 mons";
-  static const String appdidExp = "May 2019 - Jul 2019  • 3 mons";
+  static const String kalibaExp = "Apr 2022 - Jul 2023 • 1 yr 4 mos";
+  static const String btvExp = "Jan 2021 - Jun 2021 • 6 mos";
+  static const String freelanceExp = "Jul 2019 - Mar 2022 • 2 yr 8 mos";
+  static const String appdidExp = "May 2019 - Jul 2019  • 3 mos";
   static const String kaliba = "Kaliba Enterprises Pvt. Ltd.";
   static const String btv = "Beat The Virus";
   static const String jrFlutterDev = "Jr. Flutter Developer";
