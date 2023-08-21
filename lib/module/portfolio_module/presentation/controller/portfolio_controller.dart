@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../constants/image_constants.dart';
@@ -5,7 +6,7 @@ import '../../../../constants/text_constant.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../../../../utils/ui_utils/dialogs/snack_bar.dart';
-import '../../domain/entities/github_repo_model.dart';
+import '../../domain/entities/models.dart';
 import '../../domain/usecases/get_github_repo.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -23,6 +24,8 @@ class PortfolioController extends GetxController
   void onInit() {
     super.onInit();
     setExperienceData();
+    setProjectData();
+    carouselController = CarouselController();
     animationController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 20),
@@ -56,11 +59,20 @@ class PortfolioController extends GetxController
 
   var isLoading = false.obs;
   List<ExperienceModel> experienceList = [];
+  List<ProjectModel> projectList = [];
   var githubRepoList = List<GithubRepoModel>.empty(growable: true).obs;
-
+  var activeProjectIndex = 0.obs;
+  // var spacing = 16.0.obs;
+  // var baseWidth = 0.0.obs;
+  // final colors = [
+  //   Colors.greenAccent.shade100,
+  //   Colors.pink.shade100,
+  //   Colors.amber.shade100,
+  // ];
   late AnimationController animationController;
   late Animation<Offset> offsetAnimation1;
   late Animation<Offset> offsetAnimation2;
+  late CarouselController carouselController;
 
   void loadingTrue() {
     isLoading(true);
@@ -106,6 +118,41 @@ class PortfolioController extends GetxController
       language: data["language"],
       link: data["html_url"],
     );
+  }
+
+  setProjectData() {
+    projectList = [
+      ProjectModel(
+        title: TextConstants.vani,
+        description: TextConstants.vaniDes,
+        image1: AssetsConstants.assetsVani1,
+        image2: AssetsConstants.assetsVani2,
+      ),
+      ProjectModel(
+        title: TextConstants.vedyug,
+        description: TextConstants.vedyugDes,
+        image1: AssetsConstants.assetsVedyug1,
+        image2: AssetsConstants.assetsVedyug2,
+      ),
+      ProjectModel(
+        title: TextConstants.skyu,
+        description: TextConstants.skyuDes,
+        image1: AssetsConstants.assetsSkyu1,
+        image2: AssetsConstants.assetsSkyu2,
+      ),
+      ProjectModel(
+        title: TextConstants.garbhSans,
+        description: TextConstants.garbhDes,
+        image1: AssetsConstants.assetsGS1,
+        image2: AssetsConstants.assetsGS2,
+      ),
+      ProjectModel(
+        title: TextConstants.poochesWrd,
+        description: TextConstants.poochesDes,
+        image1: AssetsConstants.assetsPW1,
+        image2: AssetsConstants.assetsPW2,
+      ),
+    ];
   }
 
   setExperienceData() {

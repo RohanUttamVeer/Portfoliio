@@ -1,23 +1,24 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/constants/text_constant.dart';
 import 'package:portfolio/utils/ui_utils/text/text_style.dart';
 import 'package:portfolio/utils/ui_utils/text/text_widget.dart';
 import '../../../../constants/color_constants.dart';
-import '../../../../constants/image_constants.dart';
 import '../../../../utils/ui_utils/buttons/button.dart';
 import '../../../../utils/ui_utils/size/size_config.dart';
 import '../controller/portfolio_controller.dart';
 import '../widgets/company_card.dart';
+import '../widgets/intro_card.dart';
+import '../widgets/project_card.dart';
 import 'github_repo_screen.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 class PortfolioScreen extends GetView<PortfolioController> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    // var deviceWidth = MediaQuery.of(context).size.width;
+    // controller.baseWidth(deviceWidth > 544 ? 512.0 : deviceWidth - 32);
+
     return WillPopScope(
       onWillPop: () async {
         return true;
@@ -42,54 +43,10 @@ class PortfolioScreen extends GetView<PortfolioController> {
                   ),
                 ),
               ),
-              Stack(
-                children: [
-                  Container(
-                    height: SizeConfig.getPercentSize(18),
-                    alignment: Alignment.bottomCenter,
-                    child: SlideTransition(
-                      position: controller.offsetAnimation1,
-                      child: textWidget(
-                        text: TextConstants.adminName,
-                        style: bigHeading(),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: SizeConfig.getPercentSize(70),
-                    alignment: Alignment.bottomCenter,
-                    padding: EdgeInsets.all(SizeConfig.getPercentSize(2)),
-                    child: SlideTransition(
-                      position: controller.offsetAnimation2,
-                      child: textWidget(
-                        text: TextConstants.skills,
-                        style: skillsHeading(ColorConstants.white),
-                        textAlign: TextAlign.justify,
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: Image.asset(
-                      AssetsConstants.assetsAdminHeadshot,
-                      height: SizeConfig.getPercentSize(70),
-                    ),
-                  ),
-                  Container(
-                    height: SizeConfig.getPercentSize(70),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          ColorConstants.transparent,
-                          ColorConstants.transparent,
-                          ColorConstants.transparent,
-                          ColorConstants.green,
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+              // intro
+              IntroCard(
+                context: context,
+                controller: controller,
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -104,6 +61,20 @@ class PortfolioScreen extends GetView<PortfolioController> {
                     SizedBox(
                       height: SizeConfig.getPercentSize(2),
                     ),
+                    // projects
+                    textWidget(
+                      text: TextConstants.projects,
+                      style: authHeading(ColorConstants.white),
+                    ),
+                    SizedBox(
+                      height: SizeConfig.getPercentSize(5),
+                    ),
+                    ProjectCard(
+                      context: context,
+                      controller: controller,
+                      data: controller.projectList,
+                    ),
+                    // experience
                     textWidget(
                       text: TextConstants.experience,
                       style: authHeading(ColorConstants.white),
@@ -131,54 +102,43 @@ class PortfolioScreen extends GetView<PortfolioController> {
                         );
                       },
                     ),
-                    //       SizedBox(
-                    //         height: SizeConfig.getPercentSize(5),
-                    //       ),
-                    //       CompanyCard(
-                    //         context: context,
-                    //         role: TextConstants.appDeveloper,
-                    //         companyName: TextConstants.freelance,
-                    //         exp: TextConstants.freelanceExp,
-                    //         companyLogo: AssetsConstants.assetsFreelancer,
-                    //         isFeedback: false,
-                    //         feedbackImage: '',
-                    //         feedbackBy: '',
-                    //         feedback: '',
-                    //       ),
-                    //       SizedBox(
-                    //         height: SizeConfig.getPercentSize(5),
-                    //       ),
-                    //       CompanyCard(
-                    //         context: context,
-                    //         role:
-                    //             "${TextConstants.appDev} + ${TextConstants.teamManager}",
-                    //         companyName: TextConstants.btv,
-                    //         exp: TextConstants.btvExp,
-                    //         companyLogo: AssetsConstants.assetsBtv,
-                    //         isFeedback: true,
-                    //         feedbackImage: AssetsConstants.assetsVishal,
-                    //         feedbackBy: TextConstants.vishalB,
-                    //         feedback: kIsWeb
-                    //             ? TextConstants.vishalBFeedbackWeb
-                    //             : TextConstants.vishalBFeedback,
-                    //       ),
-                    //       SizedBox(
-                    //         height: SizeConfig.getPercentSize(5),
-                    //       ),
-                    //       CompanyCard(
-                    //         context: context,
-                    //         role: TextConstants.appDevIntern,
-                    //         companyName: TextConstants.appdid,
-                    //         exp: TextConstants.appdidExp,
-                    //         companyLogo: AssetsConstants.assetsAppdid,
-                    //         isFeedback: false,
-                    //         feedbackImage: '',
-                    //         feedbackBy: '',
-                    //         feedback: '',
-                    //       ),
                   ],
                 ),
               ),
+              // Obx(
+              //   () => Padding(
+              //     padding: const EdgeInsets.all(16),
+              //     child: Container(
+              //       child: GestureDetector(
+              //           child: Stack(children: [
+              //             ...controller.colors.asMap().entries.map(
+              //                   (entry) => Positioned(
+              //                     top: controller.spacing.value * entry.key,
+              //                     left: controller.spacing.value *
+              //                         (controller.colors.length -
+              //                             (entry.key + 1)),
+              //                     child: Container(
+              //                       height: 200,
+              //                       width: controller.baseWidth.value -
+              //                           (controller.spacing.value *
+              //                               (controller.colors.length -
+              //                                   (entry.key + 1)) *
+              //                               2),
+              //                       decoration: BoxDecoration(
+              //                         borderRadius: BorderRadius.circular(16),
+              //                         color: entry.value,
+              //                       ),
+              //                     ),
+              //                   ),
+              //                 )
+              //           ]),
+              //           onTap: () {
+              //             controller.colors
+              //                 .insert(0, controller.colors.removeLast());
+              //           }),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),

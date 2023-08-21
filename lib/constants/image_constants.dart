@@ -1,10 +1,23 @@
 class AssetsConstants {
   static const String _assetsAdminPath = "assets/admin";
+  static const String _assetsScreenshotPath = "assets/screenshot";
   static const String _assetsCompanyPath = "assets/company";
 
 // portfolio
   static const String assetsAdminHeadshot = "$_assetsAdminPath/headshot.png";
   static const String assetsAdminGithub = "$_assetsAdminPath/github.jpg";
+
+// screenshot
+  static const String assetsVani1 = "$_assetsScreenshotPath/vani_1.jpg";
+  static const String assetsVani2 = "$_assetsScreenshotPath/vani_2.jpg";
+  static const String assetsVedyug1 = "$_assetsScreenshotPath/vedyug_1.jpg";
+  static const String assetsVedyug2 = "$_assetsScreenshotPath/vedyug_2.jpg";
+  static const String assetsSkyu1 = "$_assetsScreenshotPath/skyu_1.png";
+  static const String assetsSkyu2 = "$_assetsScreenshotPath/skyu_2.png";
+  static const String assetsGS1 = "$_assetsScreenshotPath/gs_1.png";
+  static const String assetsGS2 = "$_assetsScreenshotPath/gs_2.png";
+  static const String assetsPW1 = "$_assetsScreenshotPath/pw_1.jpg";
+  static const String assetsPW2 = "$_assetsScreenshotPath/pw_2.jpg";
 
   // company
   static const String assetsKaliba = "$_assetsCompanyPath/kaliba.jpg";

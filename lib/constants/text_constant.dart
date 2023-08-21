@@ -24,6 +24,24 @@ class TextConstants {
   static const String skills =
       "Android  Flutter  Dart  Java  RESTful_API  Firebase  Git  Hive  Figma  UI/UX";
 
+  // project
+  static const String projects = "Projects";
+  static const String vani = "VANI";
+  static const String vedyug = "VEDYUG";
+  static const String skyu = "SKYU";
+  static const String garbhSans = "GARBH SANSKAR";
+  static const String poochesWrd = "POOCHES WORLD";
+  static const String vaniDes =
+      "AI-Powered language learning app, using Chat GPT for intelligent user experience.";
+  static const String vedyugDes =
+      "E-Learning app for students, with educational videos, quizzes and progress tracking.";
+  static const String skyuDes =
+      "Retail gig app for gig workers to find nearby jobs in retail stores.";
+  static const String garbhDes =
+      "Pregnancy guide app, integrated with video streaming, blogs and daily activities.";
+  static const String poochesDes =
+      "Pet care app for pet owners, nearby veterinarians, trainers, and social meet-ups.";
+
   // experience
   static const String experience = "Experience";
   static const String kalibaExp = "Apr 2022 - Jul 2023 • 1 yr 4 mos";

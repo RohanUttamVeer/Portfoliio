@@ -1,3 +1,16 @@
+class ProjectModel {
+  String? title;
+  String? description;
+  String? image1;
+  String? image2;
+  ProjectModel({
+    required this.title,
+    required this.description,
+    required this.image1,
+    required this.image2,
+  });
+}
+
 class ExperienceModel {
   String? role;
   String? companyName;
