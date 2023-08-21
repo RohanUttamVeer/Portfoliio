@@ -69,4 +69,7 @@ class TextConstants {
       "Rohan worked very well especially in the App Team of Beat The Virus Startup. He also contributed to...";
   static const String vishalBFeedbackWeb =
       "Rohan worked very well especially in the App Team of Beat The Virus Startup. He also contributed to Investments Team. Keep rising Rohan..";
+
+// Certificates
+  static const String certificates = "Certificates";
 }

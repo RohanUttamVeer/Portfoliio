@@ -2,6 +2,7 @@ class AssetsConstants {
   static const String _assetsAdminPath = "assets/admin";
   static const String _assetsScreenshotPath = "assets/screenshot";
   static const String _assetsCompanyPath = "assets/company";
+  static const String _assetsCertificate = "assets/certificate";
 
 // portfolio
   static const String assetsAdminHeadshot = "$_assetsAdminPath/headshot.png";
@@ -26,4 +27,12 @@ class AssetsConstants {
   static const String assetsFreelancer = "$_assetsCompanyPath/freelancer.png";
   static const String assetsJainesh = "$_assetsCompanyPath/jainesh.jpg";
   static const String assetsVishal = "$_assetsCompanyPath/vishal.jpg";
+
+  // certicate
+  static const String assetsCertificate1 =
+      "$_assetsCertificate/certificate_1.jpg";
+  static const String assetsCertificate2 =
+      "$_assetsCertificate/certificate_2.jpg";
+  static const String assetsCertificate3 =
+      "$_assetsCertificate/certificate_3.jpg";
 }

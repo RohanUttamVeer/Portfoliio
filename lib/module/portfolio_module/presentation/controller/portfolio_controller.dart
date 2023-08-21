@@ -62,13 +62,9 @@ class PortfolioController extends GetxController
   List<ProjectModel> projectList = [];
   var githubRepoList = List<GithubRepoModel>.empty(growable: true).obs;
   var activeProjectIndex = 0.obs;
-  // var spacing = 16.0.obs;
-  // var baseWidth = 0.0.obs;
-  // final colors = [
-  //   Colors.greenAccent.shade100,
-  //   Colors.pink.shade100,
-  //   Colors.amber.shade100,
-  // ];
+  // late PageController pageController;
+  // var currentPageValue = 0.0.obs;
+
   late AnimationController animationController;
   late Animation<Offset> offsetAnimation1;
   late Animation<Offset> offsetAnimation2;
