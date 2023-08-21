@@ -34,10 +34,7 @@ class Portfolio extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
-      initialRoute: Routes.PORTFOLIO,
-      //  Hive.box(isLoggedHive).get(isLoggedHiveKey) ?? false
-      //     ? Routes.PORTFOLIO
-      //     : Routes.AUTH,
+      initialRoute: Routes.AUTH,
       getPages: AppPages.routes,
       theme: ThemeData(
         scaffoldBackgroundColor: ColorConstants.mattBlack,
@@ -48,3 +45,9 @@ class Portfolio extends StatelessWidget {
     );
   }
 }
+
+
+
+      //  Hive.box(isLoggedHive).get(isLoggedHiveKey) ?? false
+      //     ? Routes.PORTFOLIO
+      //     : Routes.AUTH,

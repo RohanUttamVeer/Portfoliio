@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import '../../../../constants/color_constants.dart';
 import '../../../../utils/ui_utils/size/size_config.dart';
 
@@ -15,9 +15,11 @@ class CertificateCard extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-      height: SizeConfig.getPercentSize(65),
-      // width: SizeConfig.getPercentSize(40),
-      // margin: EdgeInsets.symmetric(horizontal: SizeConfig.getPercentSize(2)),
+      height: kIsWeb
+          ? SizeConfig.getPercentSize(200)
+          : SizeConfig.getPercentSize(65),
+      width: kIsWeb ? SizeConfig.getPercentSize(250) : null,
+      margin: EdgeInsets.symmetric(horizontal: SizeConfig.getPercentSize(2)),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
           SizeConfig.getPercentSize(3),

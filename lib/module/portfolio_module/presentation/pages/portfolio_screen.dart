@@ -14,6 +14,7 @@ import '../widgets/company_card.dart';
 import '../widgets/intro_card.dart';
 import '../widgets/project_card.dart';
 import 'github_repo_screen.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class PortfolioScreen extends GetView<PortfolioController> {
   @override
@@ -120,9 +121,13 @@ class PortfolioScreen extends GetView<PortfolioController> {
                       child: Stack(
                         children: [
                           Container(
-                            height: SizeConfig.getPercentSize(90),
+                            height: kIsWeb
+                                ? SizeConfig.getPercentSize(200)
+                                : SizeConfig.getPercentSize(90),
                             child: StackedCardCarousel(
-                              spaceBetweenItems: SizeConfig.getPercentSize(80),
+                              spaceBetweenItems: kIsWeb
+                                  ? SizeConfig.getPercentSize(190)
+                                  : SizeConfig.getPercentSize(80),
                               items: [
                                 CertificateCard(
                                   context: context,
